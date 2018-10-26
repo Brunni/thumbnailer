@@ -12,7 +12,6 @@
     "events": [
       "s3:ObjectCreated:*"
     ]
-  }
   },
   "allowUnsignedCerts": true
 }
