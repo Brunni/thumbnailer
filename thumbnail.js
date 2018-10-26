@@ -22,6 +22,9 @@ var config = require('config');
 
 var mcConfig = config.get('config');
 
+if (config.get('allowUnsignedCerts')){
+    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+}
 var mc = new Minio.Client(mcConfig)
 var poller = mc.listenBucketNotification(mcConfig.bucket, mcConfig.prefix,
                                          mcConfig.suffix, mcConfig.events);
