@@ -43,6 +43,7 @@ const imageType = 'image/jpg';
 poller.on('notification', record => {
     var bname = record.s3.bucket.name;
     var oname = record.s3.object.key;
+    var oname = decodeURIComponent(record.s3.object.key);
     mc.getObject(bname, oname,
                  function(err, dataStream) {
                      if (err) {
